@@ -4,6 +4,7 @@ import * as z from "zod";
 import { Category, Companion } from "@prisma/client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Wand2 } from "lucide-react";
 
 import {
   Form,
@@ -98,7 +99,7 @@ export const CompanionForm = ({
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8 pb-10"
         >
-          <div className="space-y-2 w-full">
+          <div className="space-y-2 w-full col-span-2">
             <div>
               <h3 className="text-lg font-medium">General Information</h3>
               <p className="text-sm text-muted-foreground">
@@ -110,7 +111,7 @@ export const CompanionForm = ({
           <FormField
             name="src"
             render={({ field }) => (
-              <FormItem className="flex flex-col items-center justify-center space-y-4 ">
+              <FormItem className="flex flex-col items-center justify-center space-y-4 col-span-2">
                 <FormControl>
                   <ImageUpload
                     disable={isLoading}
@@ -194,6 +195,7 @@ export const CompanionForm = ({
                   <FormDescription>
                     Select a category for your AI
                   </FormDescription>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -256,6 +258,7 @@ export const CompanionForm = ({
           <div className="w-full flex justify-center">
             <Button size="lg" disabled={isLoading}>
               {initialData ? "Edit yout companion" : "Create your companion"}
+              <Wand2 className="w-4 h-4 ml-2" />
             </Button>
           </div>
         </form>
