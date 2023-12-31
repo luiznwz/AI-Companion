@@ -30,7 +30,7 @@ export async function POST(req: Request) {
       data: {
         categoryId,
         userId: user.id,
-        userIdName: user.firstName,
+        userName: user.firstName,
         src,
         name,
         description,
